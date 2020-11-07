@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureGroup>
+  <texture scale="1" mipsToGenerate="0">Default_0.png</texture>
+  <tpe x="2" y="2" tpage="Default_0" entry="0">sCol_0b46cbbc-d517-47d6-be6c-d562e8e5b196.tpe</tpe>
+  <tpe x="2" y="14" tpage="Default_0" entry="1">sPlayer_a73f7ec2-fac8-4cfc-bf8f-1acfd034d039.tpe</tpe>
+</TextureGroup>

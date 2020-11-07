@@ -1,0 +1,21 @@
+config = 'Default'
+
+[files]
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\options\\windows\\options_windows.yy" = 13248351456
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\RateGame.yyp" = 13248620046
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sPlayer\\a73f7ec2-fac8-4cfc-bf8f-1acfd034d039.png" = 13248349441
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oPlayer\\Step_0.gml" = 13248616603
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oCamera\\oCamera.yy" = 13248620046
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oCamera\\Step_0.gml" = 13248621025
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\scripts\\get_delta_time\\get_delta_time.gml" = 13248354629
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\options\\main\\options_main.yy" = 13248354811
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oPlayer\\oPlayer.yy" = 13248536742
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oCamera\\Create_0.gml" = 13248618438
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sCol\\sCol.yy" = 13248537006
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sPlayer\\sPlayer.yy" = 13248349441
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\scripts\\get_delta_time\\get_delta_time.yy" = 13248354629
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sCol\\layers\\0b46cbbc-d517-47d6-be6c-d562e8e5b196\\d9a1ccd4-7646-4993-a9f6-1db8c9711011.png" = 13248359375
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sPlayer\\layers\\a73f7ec2-fac8-4cfc-bf8f-1acfd034d039\\3171c92d-9671-4582-ab2c-b53e00f08dc8.png" = 13248349441
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\sprites\\sCol\\0b46cbbc-d517-47d6-be6c-d562e8e5b196.png" = 13248359375
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\objects\\oPlayer\\Create_0.gml" = 13248615821
+"D:\\Code\\GameMaker Studio 2\\Projects\\RateGame\\rooms\\Room1\\Room1.yy" = 13248601917

@@ -1,0 +1,1 @@
+set_item_pickable(Self, global.Player.pickupRadius, global.InteractionKey)

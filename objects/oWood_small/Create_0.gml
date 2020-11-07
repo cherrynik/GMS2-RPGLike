@@ -1,0 +1,1 @@
+Self = oItemsTable.get_obj_data(1)
