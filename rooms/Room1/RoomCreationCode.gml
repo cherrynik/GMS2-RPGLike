@@ -1,4 +1,4 @@
-globalvar GameLanguage
+global.GameLanguage = "ru"
 
 // Keys
 global.InteractionKey = ord("E")

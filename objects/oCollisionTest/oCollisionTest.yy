@@ -1,12 +1,12 @@
 {
   "spriteId": {
-    "name": "sItemsTable",
-    "path": "sprites/sItemsTable/sItemsTable.yy",
+    "name": "sCollision",
+    "path": "sprites/sCollision/sCollision.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
-  "persistent": true,
+  "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -20,9 +20,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":2,"eventType":7,"collisionObjectId":null,"parent":{"name":"oItemsTable","path":"objects/oItemsTable/oItemsTable.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -30,7 +28,7 @@
     "path": "folders/Objects/GameService/Model.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oItemsTable",
+  "name": "oCollisionTest",
   "tags": [],
   "resourceType": "GMObject",
 }

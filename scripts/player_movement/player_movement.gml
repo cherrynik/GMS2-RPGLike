@@ -17,10 +17,14 @@ function player_movement(){
 		var _xFix = lengthdir_x(global.Player.defaultSpeed, _dir)
 		var _yFix = lengthdir_y(global.Player.defaultSpeed, _dir)
 		
-		// if ()
+		#region Collision checking
+		oPlayer.dir = [_xFix, _yFix]
+		#endregion
 
 		// Вне зависимости от количества кадров, будет всегда одна скорость
-		x += _xFix * get_delta_time()
-		y += _yFix * get_delta_time()
+		if (place_empty(x + _xFix, y + _yFix, oCollisionTest)) {
+			x += _xFix * get_delta_time()
+			y += _yFix * get_delta_time()
+		}
 	}
 }

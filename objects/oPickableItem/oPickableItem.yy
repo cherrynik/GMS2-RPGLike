@@ -21,14 +21,14 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oPickableItem","path":"objects/oPickableItem/oPickableItem.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":2,"eventType":7,"collisionObjectId":null,"parent":{"name":"oPickableItem","path":"objects/oPickableItem/oPickableItem.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oPickableItem","path":"objects/oPickableItem/oPickableItem.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "GameService",
-    "path": "folders/Objects/GameService.yy",
+    "name": "Model",
+    "path": "folders/Objects/GameService/Model.yy",
   },
   "resourceVersion": "1.0",
   "name": "oPickableItem",

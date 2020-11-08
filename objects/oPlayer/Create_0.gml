@@ -1,4 +1,9 @@
+#region Override settings
+// Global settings
 global.GameLanguage = "ru"
+#endregion
+
+dir = [0, 0]
 
 isInvFull = false
 Inventory = array_create(9, 0)
@@ -10,4 +15,4 @@ for (var i = 0; i < array_length(Inventory); i++) {
 	}
 }
 
-Inventory[8].selected = true
+Inventory[1].selected = true
