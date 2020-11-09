@@ -32,5 +32,5 @@ for (var i = 0; i < _InvSlots; i++) {
 //draw_set_halign(fa_left)
 //draw_set_valign(fa_bottom)
 
-draw_text(32, display_get_gui_height() - 32, lowerAngle)
+draw_text(32, display_get_gui_height() - 32, Direction.result)
 //draw_text(32, display_get_gui_height() - 16, dir)

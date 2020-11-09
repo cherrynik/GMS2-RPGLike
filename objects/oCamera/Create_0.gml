@@ -1,7 +1,7 @@
 // Переменные
 #macro RES_W 480
 #macro RES_H 270
-#macro CAM_SMOOTH .1
+#macro CAM_SMOOTH .2
 
 target = oPlayer
 
@@ -19,5 +19,5 @@ view_set_camera(0, camera)
 
 // Генерация размеров
 window_set_size(RES_W, RES_H)
-surface_resize(application_surface, RES_W, RES_H)
+surface_resize(application_surface, 1920, 1080) // Благодаря этому параметру, вид в игре будет лучше
 display_set_gui_size(RES_W, RES_H)

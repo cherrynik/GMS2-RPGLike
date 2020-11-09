@@ -1,9 +1,19 @@
 #region Override settings
-// Global settings
 global.GameLanguage = "ru"
 #endregion
 
-dir = [0, 0]
+Collision = oCollisionTest
+
+Direction = {
+	coords: [0, 0],
+	orientations: [
+		"top",
+		"right",
+		"bottom",
+		"left"
+	],
+	result: ""
+}
 
 isInvFull = false
 Inventory = array_create(9, 0)

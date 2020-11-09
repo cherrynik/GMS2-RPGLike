@@ -1,4 +1,4 @@
-function player_movement(){
+function player_movement(_collision) {
 /* Каждый кадр переменные пересоздаются 
  * для проверки статуса нажатой клавиши
  */
@@ -17,12 +17,11 @@ function player_movement(){
 		var _xFix = lengthdir_x(global.Player.defaultSpeed, _dir)
 		var _yFix = lengthdir_y(global.Player.defaultSpeed, _dir)
 		
-		#region Collision checking
-		oPlayer.dir = [_xFix, _yFix]
-		#endregion
+		// Запомнить направление
+		oPlayer.Direction.coords = [_xFix, _yFix]
 
 		// Вне зависимости от количества кадров, будет всегда одна скорость
-		if (place_empty(x + _xFix, y + _yFix, oCollisionTest)) {
+		if (place_empty(x + _xFix, y + _yFix, _collision)) {
 			x += _xFix * get_delta_time()
 			y += _yFix * get_delta_time()
 		}
