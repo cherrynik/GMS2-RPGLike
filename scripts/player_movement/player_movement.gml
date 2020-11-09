@@ -1,4 +1,4 @@
-function player_movement(_collision) {
+function move(_collision, _speed) {
 /* Каждый кадр переменные пересоздаются 
  * для проверки статуса нажатой клавиши
  */
@@ -14,16 +14,30 @@ function player_movement(_collision) {
 	if (HORIZONTAL != 0 || VERTICAL != 0) {
 		// Выравниваем скорость во всех направлениях
 		var _dir = point_direction(0, 0, HORIZONTAL, VERTICAL)
-		var _xFix = lengthdir_x(global.Player.defaultSpeed, _dir)
-		var _yFix = lengthdir_y(global.Player.defaultSpeed, _dir)
-		
-		// Запомнить направление
-		oPlayer.Direction.coords = [_xFix, _yFix]
+		var _xFix = lengthdir_x(_speed, _dir)
+		var _yFix = lengthdir_y(_speed, _dir)
 
 		// Вне зависимости от количества кадров, будет всегда одна скорость
-		if (place_empty(x + _xFix, y + _yFix, _collision)) {
+		if (place_free(x + _xFix * 2, y + _yFix * 2)) {
 			x += _xFix * get_delta_time()
 			y += _yFix * get_delta_time()
+		} else {
+			var _sweepInterval = 1
+			var _maxAngle = 90
+			
+			for (var _angle = _sweepInterval; _angle < _maxAngle; _angle += _sweepInterval) {
+				for (var _switcher = -1; _switcher <= 1; _switcher += 2) {      
+          var _angleCheck = _dir + _angle * _switcher
+          _xFix = lengthdir_x(_speed, _angleCheck) * get_delta_time()
+          _yFix = lengthdir_y(_speed, _angleCheck) * get_delta_time()
+
+          if (place_free(x + _xFix, y + _yFix)) {
+            x = lerp(x, x + _xFix, .5)
+            y = lerp(y, y + _yFix, .5)
+            exit
+          }   
+        }
+			}
 		}
 	}
 }

@@ -19,5 +19,5 @@ view_set_camera(0, camera)
 
 // Генерация размеров
 window_set_size(RES_W, RES_H)
-surface_resize(application_surface, 1920, 1080) // Благодаря этому параметру, вид в игре будет лучше
+surface_resize(application_surface, 2560, 1440) // Благодаря этому параметру, вид в игре будет лучше
 display_set_gui_size(RES_W, RES_H)

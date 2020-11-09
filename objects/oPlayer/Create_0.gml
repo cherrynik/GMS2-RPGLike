@@ -4,17 +4,6 @@ global.GameLanguage = "ru"
 
 Collision = oCollisionTest
 
-Direction = {
-	coords: [0, 0],
-	orientations: [
-		"top",
-		"right",
-		"bottom",
-		"left"
-	],
-	result: ""
-}
-
 isInvFull = false
 Inventory = array_create(9, 0)
 	

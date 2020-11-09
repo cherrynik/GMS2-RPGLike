@@ -3,7 +3,7 @@
     "name": "sCollision",
     "path": "sprites/sCollision/sCollision.yy",
   },
-  "solid": false,
+  "solid": true,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
