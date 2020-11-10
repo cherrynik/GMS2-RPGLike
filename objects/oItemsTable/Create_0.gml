@@ -87,8 +87,6 @@ function get_obj_data(_id) {
 		return noone
 	}
 	
-	show_debug_message(_id)
-	
 	_itemID = {} // Здесь скапливаются данные о искомом предмете
 	structCheck = ItemTable
 	var _selected // Декларация на верхнем уровне
@@ -158,16 +156,20 @@ function get_obj_data(_id) {
 	
 	// Если массив не пустой...
 	if (_tempLength) {
+		var _firstID = _temp[0]
+
 		_selected = get_item_name_by_id(structCheck, _id)
 		_itemID = get_default_data(_selected)
 
 		// И если айди имеет подгруппу
 		if (_tempLength == 3 && _temp[0] != 0) {
+			var _lastID = _temp[2]
+
 			// И это число больше 2, то оно ограничено максимум 2 (т.к. это макс. кол-во вариаций из всех)
-			_temp[2] = (is_numeric(_temp[2]) && (_temp[2] > 2)) ? undefined : _temp[2]
-			_itemID = get_advanced_data(_selected)
+			 _lastID = (is_numeric(_lastID) && (_lastID > 2)) ? undefined : _lastID
+			_itemID = get_advanced_data(_selected, _lastID)
 		} else { // Если айди не имеет подгруппу
-			_itemID = (_temp[0] != 0) ? get_advanced_data(_selected, "first") : noone // Сохранить в него конкретные данные по умолчанию
+			_itemID = (_firstID != 0) ? get_advanced_data(_selected, "first") : noone // Сохранить в него конкретные данные по умолчанию
 		}
 	}
 

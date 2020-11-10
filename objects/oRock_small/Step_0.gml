@@ -1,4 +1,4 @@
-Item = oItemsTable.get_obj_data(ID)
+Item = oItemsTable.get_obj_data("2:1")
 
 set_item_pickable(
 	Item,
