@@ -1,5 +1,5 @@
 // База данных предметов
-ItemTable = {
+ItemsTable = {
 	none: 0, // Пустой предмет
 	
 	// Название предмета в древе предметов
@@ -88,7 +88,7 @@ function get_obj_data(_id) {
 	}
 	
 	_itemID = {} // Здесь скапливаются данные о искомом предмете
-	structCheck = ItemTable
+	structCheck = ItemsTable
 	var _selected // Декларация на верхнем уровне
 	var _temp = string_split(_id, ":") // Разбиваем айди элемента на массив
 	var _tempLength = array_length(_temp)
@@ -114,9 +114,10 @@ function get_obj_data(_id) {
 
 	/* Сохраняем обязательные конкретные данные о предмете,
 	 * взяв сохранённое слово и
-	 * нашедши по нему его данные в древе ItemTable
+	 * нашедши по нему его данные в древе ItemsTable
 	 */
 	function get_advanced_data(_name, _type)  {
+		// Конвертация числа в строковый тип
 		var _subtypeToString = function(_number) {
 			switch (_number) {
 				default:
@@ -126,14 +127,16 @@ function get_obj_data(_id) {
 			}
 		}
 		
+		// Если тип представлен в виде числа
 		if (is_numeric(_type)) {
-			_type = _subtypeToString(_type)
+			_type = _subtypeToString(_type) // Конвертировать его в строку и запомнить, перезаписав
 		}
 		
-		_selfType = temp_struct_get(_name).type
-		_typeStruct = variable_struct_get(_selfType, _type)
+		// Декларация переменных
+		_selfType = temp_struct_get(_name).type // Структура > тип (запомнили), для краткости
+		_typeStruct = variable_struct_get(_selfType, _type) // Получили искомый тип, запомнили
 		
-		// Локальная функция-переменная для доступа к данным к локализации
+		// Локальная функция-переменная для доступа к данным к локализации по текущему языку игры
 		var _localizedData = function(_struct) {
 			var _gameLang = string(global.GameLanguage)
 			var _currentStruct = variable_struct_get(_typeStruct, _struct)
@@ -142,6 +145,7 @@ function get_obj_data(_id) {
 			return _currentStruct
 		}
 		
+		// Скопление данных о предмете
 		_itemID.name = (!is_undefined(_itemID.name)) ? _itemID.name + _typeStruct.name : _typeStruct.name
 		_itemID.spriteID = _typeStruct.spriteID
 		_itemID.isStacked = _typeStruct.isStacked
@@ -151,15 +155,15 @@ function get_obj_data(_id) {
 		_itemID.label = _localizedData("label")
 		_itemID.desc = _localizedData("desc")
 
-		return _itemID
+		return _itemID // Возврат сгенерированного предмета
 	}
 	
 	// Если массив не пустой...
 	if (_tempLength) {
+		// Декларация переменных, перезапись, запись
 		var _firstID = _temp[0]
-
-		_selected = get_item_name_by_id(structCheck, _id)
-		_itemID = get_default_data(_selected)
+		_selected = get_item_name_by_id(structCheck, _id) // Запомнить вызываемый объект и получить его имя
+		_itemID = get_default_data(_selected) // Получить базовые данные объекта по запомнившемуся имени
 
 		// И если айди имеет подгруппу
 		if (_tempLength == 3 && _temp[0] != 0) {

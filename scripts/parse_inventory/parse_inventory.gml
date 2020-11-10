@@ -1,44 +1,45 @@
 function parse_inventory( _item, _invLink) {
+	// Декларация переменных по умолчанию
 	var _invSlots = array_length(_invLink)
-	var _again = false
-	
-	if (!oPlayer.isInvFull) {
+	var _again = false // Глобальная переменная для памяти
+
+	// Если инвентарь не полон
+	if (!oPlayer.isInventoryFull) {
+		// Начать "прогон" по инвентарю
 		for (var i = 0; i < _invSlots; i++) {
-			if (_invLink[i].item != noone && i != _invSlots - 1 && !_again) {
-				if ((_item.name == _invLink[i].item.name) && (_item.maxCount > _invLink[i].count)) {
-					_invLink[i].count++
+			// Запомнить переменные
+			var _slotEmpty = (_invLink[i].item == noone)
+			var _slotLast = _invSlots - 1
 
-					instance_destroy(self)
-					break
-				}
-			} else if (i == _invSlots - 1) {
-				_again = true
-				i = -1
-			} else if (_again) {
-				if (_invLink[i].item == noone && i != _invSlots - 1) {
-					if (_invLink[i].selected) {
-						_invLink[i] = {
-							item: _item,
-							count: 1,
-							selected: true
-						}
-					} else {
-						_invLink[i] = {
-							item: _item,
-							count: 1,
-							selected: false
-						}
+			// Если это первый "прогон"
+			if (!_again) {
+				// Если текущий слот не пустой и не является последним
+				if (!_slotEmpty && (i != _slotLast)) {
+					// Если название подобранного предмета равняется уже сохранённому предмету в инвентаре,
+					// а также не превышает заданное максимальное количество данного предмета...
+					if ((_item.name == _invLink[i].item.name) && (_item.maxCount > _invLink[i].count)) {
+						_invLink[i].count++ // Увеличить кол-во данного предмета
+						instance_destroy(self) // Уничтожить его на земле
+						break
 					}
-
-					instance_destroy(self)
+				} else if ((i == _slotLast) && !_again) { // Если это последний слот и был первый "прогон"
+					_again = true
+					i = -1 // Начать сначала
+				}
+			} else { // Если это "прогон" заново
+				if (_slotEmpty) { // Если слот пустой
+					_invLink[i].item = _item // Заполнить слот подобранным предметом
+					_invLink[i].count = 1 // И присвоить количество данного предмета
+					instance_destroy(self) // Уничтожить его на земле
 					break
-				} else if (_again && i == _invSlots - 1) {
-					oPlayer.isInvFull = true
+				} else if (!_slotEmpty && (i == _slotLast)) { // Если слот не пустой и уже последний
+					oPlayer.isInventoryFull = true // Смириться с тем, что инвентарь пуст...
 					break
 				}
 			}
 		}
 	}
-	
+
+	// Покинуть "помещение" (скрипт)
 	return _invLink
 }

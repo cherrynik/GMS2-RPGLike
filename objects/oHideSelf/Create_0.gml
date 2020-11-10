@@ -1,2 +1,1 @@
-timeOut = 1
-timeOut *= room_speed
+StepBy = .05 // Регулярное вычитание прозрачности

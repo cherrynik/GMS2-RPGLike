@@ -1,3 +1,2 @@
-image_alpha -= .05
-
-alarm[0] = timeOut
+// Вычитать прозрачность у изображения
+image_alpha -= StepBy

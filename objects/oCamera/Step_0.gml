@@ -1,3 +1,4 @@
+// Декларация переменных
 var _viewX = camera_get_view_x(camera)
 var _viewY = camera_get_view_y(camera)
 

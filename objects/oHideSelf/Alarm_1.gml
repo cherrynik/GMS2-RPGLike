@@ -1,3 +1,1 @@
-image_alpha += .05
-
-alarm[1] = timeOut
+image_alpha += StepBy
