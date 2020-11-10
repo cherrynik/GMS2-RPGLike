@@ -1,9 +1,10 @@
 // База данных предметов
-Item = {
+ItemTable = {
 	none: 0, // Пустой предмет
 	
 	// Название предмета в древе предметов
 	wood: {
+		id: 1,
 		name: "wood", // Название предмета
 		class: "entity", // Класс предмета
 		rarity: 0, // Редкость предмета
@@ -11,9 +12,11 @@ Item = {
 			first: { // Первая вариация
 				label: {
 					ru: "Веточка",
+					en: "Twig"
 				},
 				desc: {
-					ru: "Тоненькая и гибкая..."
+					ru: "Тоненькая и гибкая...",
+					en: "Slender and flexible..."
 				},
 				name: "_small", // В данном случае - будет веточка (маленький). Дополняется к названию
 				object: oWood_small,
@@ -25,6 +28,7 @@ Item = {
 	},
 	
 	rock: {
+		id: 2,
 		name: "rock",
 		class: "entity",
 		rarity: 0,
@@ -32,9 +36,11 @@ Item = {
 			first: {
 				label: {
 					ru: "Камешек",
+					en: "Pebble",
 				},
 				desc: {
 					ru: "Подростки любят таким запускать блинчики.",
+					en: "Teenagers like to run pancakes this way."
 				},
 				name: "_small",
 				object: oRock_small,
@@ -45,9 +51,11 @@ Item = {
 			second: {
 				label: {
 					ru: "Камень",
+					en: "Rock"
 				},
 				desc: {
 					ru: "Это тебе не малыш, им можно случайно задеть кого-то не без последствий...",
+					en: "This is not a little, it can accidentally hurt someone with consequences..."
 				},
 				name: "_medium",
 				spriteID: sRock,
@@ -57,6 +65,7 @@ Item = {
 		}
 	}
 }
+
 
 /*
 enum ItemClassID {
@@ -74,121 +83,93 @@ enum ItemRarelyID {
 */
 
 function get_obj_data(_id) {
-	if (is_undefined(_id)) _id = 0
+	if (is_undefined(_id) || _id == 0) {
+		return noone
+	}
+	
+	show_debug_message(_id)
 	
 	_itemID = {} // Здесь скапливаются данные о искомом предмете
-	var _selected // Деклация на верхнем уровне
+	structCheck = ItemTable
+	var _selected // Декларация на верхнем уровне
 	var _temp = string_split(_id, ":") // Разбиваем айди элемента на массив
 	var _tempLength = array_length(_temp)
 	
-	// Сохраняем базовые данные о предмете
+	// Локальная функция для быстрого взаимодействия со структурами (объектами)
+	function temp_struct_get(_name) {
+		return variable_struct_get(structCheck, _name)
+		
+		/* Переменная _name везде одинаковая,
+		 * но значения у неё везде разные —
+		 * область видимости.
+		 */
+	}
+	
+	// Сохранение базовых данных об объекте
 	function get_default_data(_name) {
-		_itemID.name = variable_struct_get(Item, _name).name
-		_itemID.class = variable_struct_get(Item, _name).class
-		_itemID.rarity = variable_struct_get(Item, _name).rarity
+		_itemID.name = temp_struct_get(_name).name
+		_itemID.class = temp_struct_get(_name).class
+		_itemID.rarity = temp_struct_get(_name).rarity
 
 		return _itemID
 	}
-	
+
 	/* Сохраняем обязательные конкретные данные о предмете,
 	 * взяв сохранённое слово и
-	 * нашедши по нему его данные в древе Item
+	 * нашедши по нему его данные в древе ItemTable
 	 */
 	function get_advanced_data(_name, _type)  {
-		switch (_type) {
-			case 1:
-			case "medium":
-			case "second":
-				_itemID.name = !is_undefined(_itemID.name) ? _itemID.name + variable_struct_get(Item, _name).type.second.name : variable_struct_get(Item, _name).type.second.name
-				_itemID.spriteID = variable_struct_get(Item, _name).type.second.spriteID
-				_itemID.isStacked = variable_struct_get(Item, _name).type.second.isStacked
-				_itemID.maxCount = variable_struct_get(Item, _name).type.second.maxCount
-				_itemID.object = variable_struct_get(Item, _name).type.second.object
-				
-				if (global.GameLanguage == "ru") {
-					_itemID.label = variable_struct_get(Item, _name).type.second.label.ru
-					_itemID.desc = variable_struct_get(Item, _name).type.second.desc.ru
-				} else {
-					_itemID.label = variable_struct_get(Item, _name).type.second.label.en
-					_itemID.desc = variable_struct_get(Item, _name).type.second.desc.en
-				}
-
-				break
-			case 2:
-			case "big":
-			case "third":
-				_itemID.name = !is_undefined(_itemID.name) ? _itemID.name + variable_struct_get(Item, _name).type.third.name : variable_struct_get(Item, _name).type.third.name
-				_itemID.spriteID = variable_struct_get(Item, _name).type.third.spriteID
-				_itemID.isStacked = variable_struct_get(Item, _name).type.third.isStacked
-				_itemID.maxCount = variable_struct_get(Item, _name).type.third.maxCount
-				_itemID.object = variable_struct_get(Item, _name).type.third.object
-				
-				if (global.GameLanguage == "ru") {
-					_itemID.label = variable_struct_get(Item, _name).type.third.label.ru
-					_itemID.desc = variable_struct_get(Item, _name).type.third.desc.ru
-				} else {
-					_itemID.label = variable_struct_get(Item, _name).type.third.label.en
-					_itemID.desc = variable_struct_get(Item, _name).type.third.desc.en
-				}
-
-				break
-			default:
-				_itemID.name = !is_undefined(_itemID.name) ? _itemID.name + variable_struct_get(Item, _name).type.first.name : variable_struct_get(Item, _name).type.first.name
-				_itemID.spriteID = variable_struct_get(Item, _name).type.first.spriteID 
-				_itemID.isStacked = variable_struct_get(Item, _name).type.first.isStacked
-				_itemID.maxCount = variable_struct_get(Item, _name).type.first.maxCount
-				_itemID.object = variable_struct_get(Item, _name).type.first.object
-				
-				if (global.GameLanguage == "ru") {
-					_itemID.label = variable_struct_get(Item, _name).type.first.label.ru
-					_itemID.desc = variable_struct_get(Item, _name).type.first.desc.ru
-				} else {
-					_itemID.label = variable_struct_get(Item, _name).type.first.label.en
-					_itemID.desc = variable_struct_get(Item, _name).type.first.desc.en
-				}
-
-				break
+		var _subtypeToString = function(_number) {
+			switch (_number) {
+				default:
+					case 1: return "first" break
+				case 2: return "second" break
+				case 3: return "third" break
+			}
 		}
+		
+		if (is_numeric(_type)) {
+			_type = _subtypeToString(_type)
+		}
+		
+		_selfType = temp_struct_get(_name).type
+		_typeStruct = variable_struct_get(_selfType, _type)
+		
+		// Локальная функция-переменная для доступа к данным к локализации
+		var _localizedData = function(_struct) {
+			var _gameLang = string(global.GameLanguage)
+			var _currentStruct = variable_struct_get(_typeStruct, _struct)
+			_currentStruct = variable_struct_get(_currentStruct, _gameLang)
+			
+			return _currentStruct
+		}
+		
+		_itemID.name = (!is_undefined(_itemID.name)) ? _itemID.name + _typeStruct.name : _typeStruct.name
+		_itemID.spriteID = _typeStruct.spriteID
+		_itemID.isStacked = _typeStruct.isStacked
+		_itemID.maxCount = _typeStruct.maxCount
+		_itemID.object = _typeStruct.object
+		
+		_itemID.label = _localizedData("label")
+		_itemID.desc = _localizedData("desc")
 
 		return _itemID
 	}
 	
 	// Если массив не пустой...
 	if (_tempLength) {
-		
-		/* Здесь хранятся ключевые айди предметов,
-		 * которые должны соответсвовать порядковому номеру
-		 * элемента из древа предметов Item
-		 */
-		switch(_temp[0]) { // В этом участке собираем обязательные базовые данные о предмете по айди
-			case 1:
-				_selected = "wood" // Запоминаем выбранный предмет по айди и вводим его словом
-				_itemID = get_default_data(_selected) break
-			case 2:
-				_selected = "rock"
-				_itemID = get_default_data(_selected) break
-			default:
-				_selected = noone
-				_itemID = noone break
-		}
+		_selected = get_item_name_by_id(structCheck, _id)
+		_itemID = get_default_data(_selected)
 
 		// И если айди имеет подгруппу
 		if (_tempLength == 3 && _temp[0] != 0) {
 			// И это число больше 2, то оно ограничено максимум 2 (т.к. это макс. кол-во вариаций из всех)
-			//_temp[2] = (is_numeric(_temp[2]) && (_temp[2] > 2)) ? undefined : _temp[2]
-			
-			// Собираем обязательные конкретные данные по айди
-			switch(_temp[2]) {
-				case 1: _itemID = get_advanced_data(_selected, "second") break
-				case 2: _itemID = get_advanced_data(_selected, "third") break
-				default: _itemID = get_advanced_data(_selected) break
-			}
+			_temp[2] = (is_numeric(_temp[2]) && (_temp[2] > 2)) ? undefined : _temp[2]
+			_itemID = get_advanced_data(_selected)
 		} else { // Если айди не имеет подгруппу
-			_itemID = (_temp[0] != 0) ? get_advanced_data(_selected) : noone // Сохранить в него конкретные данные по умолчанию
+			_itemID = (_temp[0] != 0) ? get_advanced_data(_selected, "first") : noone // Сохранить в него конкретные данные по умолчанию
 		}
 	}
 
 	return _itemID
 }
-
-//show_debug_message(get_obj_data("2:1"))

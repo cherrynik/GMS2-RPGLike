@@ -1,4 +1,4 @@
-function move(_collision, _speed) {
+function player_move(_collision, _speed) {
 /* Каждый кадр переменные пересоздаются 
  * для проверки статуса нажатой клавиши
  */
@@ -17,8 +17,8 @@ function move(_collision, _speed) {
 		var _xFix = lengthdir_x(_speed, _dir)
 		var _yFix = lengthdir_y(_speed, _dir)
 
-		// Вне зависимости от количества кадров, будет всегда одна скорость
 		if (place_free(x + _xFix * 2, y + _yFix * 2)) {
+			// Вне зависимости от количества кадров, будет всегда одна скорость
 			x += _xFix * get_delta_time()
 			y += _yFix * get_delta_time()
 		} else {

@@ -2,7 +2,7 @@
 global.GameLanguage = "ru"
 #endregion
 
-Collision = oCollisionTest
+Collision = oCollision
 
 isInvFull = false
 Inventory = array_create(9, 0)

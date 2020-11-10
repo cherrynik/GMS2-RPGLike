@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Entities",
-    "path": "folders/Objects/Environment/Entities.yy",
+    "name": "Items",
+    "path": "folders/Objects/World/Items.yy",
   },
   "resourceVersion": "1.0",
   "name": "oRock_small",

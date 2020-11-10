@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Environment",
-    "path": "folders/Objects/Environment.yy",
+    "path": "folders/Objects/World/Environment.yy",
   },
   "resourceVersion": "1.0",
   "name": "oTree",

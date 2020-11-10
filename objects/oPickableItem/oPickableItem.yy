@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Model",
-    "path": "folders/Objects/GameService/Model.yy",
+    "name": "Items",
+    "path": "folders/Objects/World/Items.yy",
   },
   "resourceVersion": "1.0",
   "name": "oPickableItem",

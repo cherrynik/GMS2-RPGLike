@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Player/Movement.yy",
   },
   "resourceVersion": "1.0",
-  "name": "player_movement",
+  "name": "player_move",
   "tags": [],
   "resourceType": "GMScript",
 }

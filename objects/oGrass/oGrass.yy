@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Entities",
-    "path": "folders/Objects/Environment/Entities.yy",
+    "name": "Environment",
+    "path": "folders/Objects/World/Environment.yy",
   },
   "resourceVersion": "1.0",
   "name": "oGrass",

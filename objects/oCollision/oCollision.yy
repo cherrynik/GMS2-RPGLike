@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Model",
-    "path": "folders/Objects/GameService/Model.yy",
+    "name": "GameService",
+    "path": "folders/Objects/GameService.yy",
   },
   "resourceVersion": "1.0",
   "name": "oCollision",
