@@ -1,12 +1,12 @@
 {
   "spriteId": {
-    "name": "sItemsTable",
-    "path": "sprites/sItemsTable/sItemsTable.yy",
+    "name": "sLeaf",
+    "path": "sprites/sLeaf/sLeaf.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
-  "persistent": true,
+  "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -20,17 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oItemsTable","path":"objects/oItemsTable/oItemsTable.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Items",
-    "path": "folders/Objects/GameService/Items.yy",
+    "name": "Environment",
+    "path": "folders/Objects/World/Environment.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oItemsTable",
+  "name": "oLeaf",
   "tags": [],
   "resourceType": "GMObject",
 }
