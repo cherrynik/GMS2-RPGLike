@@ -1,4 +1,4 @@
-global.GameLanguage = "ru"
+global.GameLanguage = "en"
 global.GameFPS = 60
 
 // Keys

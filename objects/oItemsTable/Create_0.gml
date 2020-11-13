@@ -12,7 +12,7 @@ ItemsTable = {
 			first: { // Первая вариация
 				label: {
 					ru: "Веточка",
-					en: "Twig"
+					en: "Twig",
 				},
 				desc: {
 					ru: "Тоненькая и гибкая...",

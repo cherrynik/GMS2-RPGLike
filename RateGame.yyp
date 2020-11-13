@@ -25,6 +25,7 @@
     {"id":{"name":"oDepthSystem","path":"objects/oDepthSystem/oDepthSystem.yy",},"order":1,},
     {"id":{"name":"sSlot","path":"sprites/sSlot/sSlot.yy",},"order":1,},
     {"id":{"name":"sRock_small","path":"sprites/sRock_small/sRock_small.yy",},"order":1,},
+    {"id":{"name":"Script10","path":"scripts/Script10/Script10.yy",},"order":6,},
     {"id":{"name":"sCamera","path":"sprites/sCamera/sCamera.yy",},"order":1,},
     {"id":{"name":"Example","path":"fonts/Example/Example.yy",},"order":0,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
