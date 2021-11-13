@@ -1,5 +1,3 @@
-#macro LIMIT_ON_COLLISION 3
-
 function player_movement(_speed) {
     var _get_input = function() {
     	var left  = keyboard_check(vk_left),
@@ -30,29 +28,18 @@ function player_movement(_speed) {
     		yFix = lengthdir_y(_speed, dir);
     		
 		var isMoved = _check_is_free_and_move(xFix, yFix);
-
 		if (not isMoved) {
-			var sweepInterval = 1; // Интервал проверки углов, в арифметической прогрессии - это d
-			var maxAngle = 90; // Максимальный угол "обтекания" угла/стены
+			var ANGLE_CHECK_INTERVAL        = 1,
+			    MAX_ANGLE_CHECK             = 90,
+                ON_COLLISION_LIMIT_SPEED_BY = 3;
 			
-			// Прогнать направление под текущим углом...
-			for (var angle = sweepInterval; angle < maxAngle; angle += sweepInterval) {
-				// В две стороны (с помощью switcher'а)
-				for (var switcher = -1; switcher <= 1; switcher += 2) {  
-					/*
-					 * Текущее направление на векторной плоскости
-					 * применить под текущим проверяемым углом
-					 */
-					var angleCheck = dir + angle * switcher;
-					/*
-					 * Присваиваем скорость изменения переменной
-					 * в направлении под текущим углом
-					 * "замедленной", по умолчанию
-					 */
-			        xFix = lengthdir_x(_speed / LIMIT_ON_COLLISION, angleCheck);
-			        yFix = lengthdir_y(_speed / LIMIT_ON_COLLISION, angleCheck);
+			for (var angle = ANGLE_CHECK_INTERVAL; angle < MAX_ANGLE_CHECK; angle += ANGLE_CHECK_INTERVAL) {
+				for (var angle_direction = -1; angle_direction <= 1; angle_direction += 2) {  
+					var angleCheck = dir + angle * angle_direction;
 					
-					// Если проверяемый угол оказался успешным по направлению...
+			        xFix = lengthdir_x(_speed / ON_COLLISION_LIMIT_SPEED_BY, angleCheck);
+			        yFix = lengthdir_y(_speed / ON_COLLISION_LIMIT_SPEED_BY, angleCheck);
+					
 					isMoved = _check_is_free_and_move(xFix, yFix);
 					if (isMoved) exit;
 				}
