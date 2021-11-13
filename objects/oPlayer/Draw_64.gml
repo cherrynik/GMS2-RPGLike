@@ -1,4 +1,4 @@
-draw_set_color(c_white);
+/* draw_set_color(c_white);
 draw_set_font(Example);
 
 var _InvSlots = array_length(Inventory);
@@ -24,4 +24,4 @@ for (var i = 0; i < _InvSlots; i++) {
 			draw_text_ext_transformed(26, i * 15 + 5, Inventory[i].count, 30, 300, .3, .3, 0);
 		}
 	}
-}
+} */
