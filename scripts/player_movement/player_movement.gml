@@ -13,23 +13,25 @@ function player_movement(_speed) {
     	}
     }
     
+    var _check_is_free_and_move = function(_x, _y) {
+       if (place_free(x + _x, y + _y)) {
+			x += _x * get_delta_time(); // By delta time it's independent on game FPS
+			y += _y * get_delta_time();
+			return true;
+		}
+		return false;
+    }
+    
     var input = _get_input();
 	if (input.x != 0 || input.y != 0) {
-		/*
-		 * Выравниваем скорость во всех направлениях
-		 */
-		
-		// Задаём направление на векторной плоскости
-		var dir = point_direction(0, 0, input.x, input.y);
-		// Присваиваем скорость изменения переменной
-		var xFix = lengthdir_x(_speed, dir);
-		var yFix = lengthdir_y(_speed, dir);
-		// Выровняли
+	    // Normalize movement in diagonal directions
+		var dir = point_direction(0, 0, input.x, input.y),
+    		xFix = lengthdir_x(_speed, dir),
+    		yFix = lengthdir_y(_speed, dir);
+    		
+		var isMoved = _check_is_free_and_move(xFix, yFix);
 
-		if (place_free(x + xFix, y + yFix)) {
-			x += xFix * get_delta_time(); // Вне зависимости от количества кадров, будет всегда одна скорость
-			y += yFix * get_delta_time();
-		} else {
+		if (not isMoved) {
 			var sweepInterval = 1; // Интервал проверки углов, в арифметической прогрессии - это d
 			var maxAngle = 90; // Максимальный угол "обтекания" угла/стены
 			
@@ -51,12 +53,8 @@ function player_movement(_speed) {
 			        yFix = lengthdir_y(_speed / LIMIT_ON_COLLISION, angleCheck);
 					
 					// Если проверяемый угол оказался успешным по направлению...
-					if (place_free(x + xFix, y + yFix)) {
-			            x += xFix * get_delta_time();
-			            y += yFix * get_delta_time();
-						// Завершить дальнейшую проверку других углов
-						exit;
-					}
+					isMoved = _check_is_free_and_move(xFix, yFix);
+					if (isMoved) exit;
 				}
 			}
 		}
