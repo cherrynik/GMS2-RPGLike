@@ -1,22 +1,26 @@
 #macro LIMIT_ON_COLLISION 3
 
 function player_movement(_speed) {
-	var left  = keyboard_check(vk_left);
-	var right = keyboard_check(vk_right);
-	var up    = keyboard_check(vk_up);
-	var down  = keyboard_check(vk_down);
-
-	// Векторное направление движения игрока по осям
-	HORIZONTAL = right - left;
-	VERTICAL   = down - up;
-
-	if (HORIZONTAL != 0 || VERTICAL != 0) {
+    var _get_input = function() {
+    	var left  = keyboard_check(vk_left),
+    	    right = keyboard_check(vk_right),
+    	    up    = keyboard_check(vk_up),
+    	    down  = keyboard_check(vk_down);
+    
+    	return {
+    	    x: right - left,
+    	    y: down - up
+    	}
+    }
+    
+    var input = _get_input();
+	if (input.x != 0 || input.y != 0) {
 		/*
 		 * Выравниваем скорость во всех направлениях
 		 */
 		
 		// Задаём направление на векторной плоскости
-		var dir = point_direction(0, 0, HORIZONTAL, VERTICAL);
+		var dir = point_direction(0, 0, input.x, input.y);
 		// Присваиваем скорость изменения переменной
 		var xFix = lengthdir_x(_speed, dir);
 		var yFix = lengthdir_y(_speed, dir);
