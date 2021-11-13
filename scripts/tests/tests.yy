@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Inventory",
-    "path": "folders/Scripts/Player/Inventory.yy",
+    "name": "Tests",
+    "path": "folders/Scripts/Tests.yy",
   },
   "resourceVersion": "1.0",
-  "name": "init_inventory",
+  "name": "tests",
   "tags": [],
   "resourceType": "GMScript",
 }
