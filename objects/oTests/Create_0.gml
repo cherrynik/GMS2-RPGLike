@@ -7,5 +7,3 @@ test_movement = function() {
 run_tests = function() {
   test_movement();
 }();
-
-// room_goto_next();
