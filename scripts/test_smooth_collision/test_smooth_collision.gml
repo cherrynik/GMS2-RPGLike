@@ -1,6 +1,6 @@
 function test_smooth_collision() {
   var Player   = instance_create_layer(0, 0, "Instances", oPlayer),
-      Collider = instance_create_layer(8, 4, "Instances", oCollision);
+      Collider = instance_create_layer(8, 4, "Instances", oCollider);
   
   Collider.image_angle = 0;
   {

@@ -12,4 +12,4 @@ global.Player = {
 }
 
 global.GlobalOpacity = .25
-global.Collision = oCollision
+// global.Collision = oCollider

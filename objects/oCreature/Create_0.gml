@@ -1,32 +1,7 @@
-#region Movement - Variables
 Speed = {
   normal: 1,
   slowed: 1/3,
 };
-#endregion
-
-#region Movement - Methods
-GetInputAxis = function() {
-  // TODO: Custom inputs
-  var left  = keyboard_check(vk_left),
-  	  right = keyboard_check(vk_right),
-  	  up    = keyboard_check(vk_up),
-  	  down  = keyboard_check(vk_down);
-  
-  return {
-    x: right - left,
-    y: down - up
-  }
-}
-
-CheckIfFreeAndMoveOn = function(_x, _y) {
-  if (place_free(x + _x, y + _y)) {
-    x += _x * get_delta_time(); // By delta time it's independent on game FPS
-    y += _y * get_delta_time();
-    return true;
-  }
-  return false;
-}
 
 GetCoordsNormalized = function(_coords) {
   // TODO: Replace speed on current value
@@ -43,6 +18,15 @@ GetCoordsNormalized = function(_coords) {
     y: y_fix,
     direction: dir,
   }
+}
+
+CheckIfFreeAndMoveOn = function(_x, _y) {
+  if (place_free(x + _x, y + _y)) {
+    x += _x * get_delta_time(); // By delta time it's independent on game FPS
+    y += _y * get_delta_time();
+    return true;
+  }
+  return false;
 }
 
 CollideSmoothlyAt = function(_coords) {
@@ -65,15 +49,3 @@ CollideSmoothlyAt = function(_coords) {
   }
   return false;
 }
-
-MoveByInput = function(_input = GetInputAxis()) {
-  if (_input.x != 0 || _input.y != 0) {
-    var coords  = GetCoordsNormalized(_input, Speed.normal),
-        isMoved = CheckIfFreeAndMoveOn(coords.x, coords.y);
-           
-    if (not isMoved) {
-      CollideSmoothlyAt(coords);
-    }
-  }
-}
-#endregion

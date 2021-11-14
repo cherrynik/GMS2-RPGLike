@@ -1,6 +1,6 @@
 function test_collision() {
   var Player   = instance_create_layer(16, 0,  "Instances", oPlayer),
-      Collider = instance_create_layer(16, 16, "Instances", oCollision);
+      Collider = instance_create_layer(16, 16, "Instances", oCollider);
 
   {
 	assert(Player.CheckIfFreeAndMoveOn(1, 3));

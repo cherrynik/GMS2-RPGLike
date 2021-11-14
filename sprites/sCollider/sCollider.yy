@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollision/sCollision.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollision/sCollision.yy",},"LayerId":{"name":"d9a1ccd4-7646-4993-a9f6-1db8c9711011","path":"sprites/sCollision/sCollision.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sCollision","path":"sprites/sCollision/sCollision.yy",},"resourceVersion":"1.0","name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollider/sCollider.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollider/sCollider.yy",},"LayerId":{"name":"d9a1ccd4-7646-4993-a9f6-1db8c9711011","path":"sprites/sCollider/sCollider.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sCollider","path":"sprites/sCollider/sCollider.yy",},"resourceVersion":"1.0","name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sCollision","path":"sprites/sCollision/sCollision.yy",},
+    "spriteId": {"name":"sCollider","path":"sprites/sCollider/sCollider.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"fe229c7e-9fee-4f54-b18d-13af5db71c46","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollision/sCollision.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fe229c7e-9fee-4f54-b18d-13af5db71c46","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b46cbbc-d517-47d6-be6c-d562e8e5b196","path":"sprites/sCollider/sCollider.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sCollision","path":"sprites/sCollision/sCollision.yy",},
+    "parent": {"name":"sCollider","path":"sprites/sCollider/sCollider.yy",},
     "resourceVersion": "1.3",
-    "name": "sCollision",
+    "name": "sCollider",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -97,7 +97,7 @@
     "path": "folders/Sprites/GameService.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sCollision",
+  "name": "sCollider",
   "tags": [],
   "resourceType": "GMSprite",
 }

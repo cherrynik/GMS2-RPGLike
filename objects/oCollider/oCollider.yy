@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sCollision",
-    "path": "sprites/sCollision/sCollision.yy",
+    "name": "sCollider",
+    "path": "sprites/sCollider/sCollider.yy",
   },
   "solid": true,
   "visible": true,
@@ -28,7 +28,7 @@
     "path": "folders/Objects/GameService.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oCollision",
+  "name": "oCollider",
   "tags": [],
   "resourceType": "GMObject",
 }
