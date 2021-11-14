@@ -4,8 +4,7 @@ function test_collision() {
 
   {
 	assert(Player.CheckIfFreeAndMoveOn(1, 3));
-	assert_equal(Player.x, 17);
-	assert_equal(Player.y, 3);
+	assert_equal([Player.x, Player.y], [17, 3]);
   }
   // Player: {x: 17, y: 3}
   

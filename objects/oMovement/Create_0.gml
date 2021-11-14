@@ -59,7 +59,6 @@ CollideSmoothlyAt = function(_coords) {
   	  		
   	  isMoved = CheckIfFreeAndMoveOn(_coords.x, _coords.y);
   	  if (isMoved) {
-		show_debug_message(angle);
 		return true;
 	  }
   	}
