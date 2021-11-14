@@ -19,7 +19,7 @@ GetInput = function() {
     }
 }
 
-CheckIfFreeAndMove = function(_x, _y) {
+CheckIfFreeAndMoveOn = function(_x, _y) {
     if (place_free(x + _x, y + _y)) {
 		x += _x * get_delta_time(); // By delta time it's independent on game FPS
 		y += _y * get_delta_time();
@@ -28,9 +28,9 @@ CheckIfFreeAndMove = function(_x, _y) {
 	return false;
 }
 
-GetCoordsNormalized = function(_input) {
+InputNormalized = function(_input) {
     var dir   = point_direction(0, 0, _input.x, _input.y),
-        x_fix = lengthdir_x(Speed.normal, dir),
+        x_fix = lengthdir_x(Speed.normal, dir), // TODO: Current speed
         y_fix = lengthdir_y(Speed.normal, dir);
         
     return {
@@ -40,7 +40,7 @@ GetCoordsNormalized = function(_input) {
     }
 }
 
-CollideSmoothly = function(_coords) {
+CollideSmoothlyAt = function(_coords) {
     var DEGREE_CHECK_INTERVAL = 1,
 		MAX_DEGREE_CHECK      = 90;
 			
@@ -51,20 +51,19 @@ CollideSmoothly = function(_coords) {
 			_coords.x = lengthdir_x(Speed.slowed, degree_check);
 			_coords.y = lengthdir_y(Speed.slowed, degree_check);
 					
-			isMoved = CheckIfFreeAndMove(_coords.x, _coords.y);
+			isMoved = CheckIfFreeAndMoveOn(_coords.x, _coords.y);
 			if (isMoved) exit;
 		}
 	}   
 }
 
-Movement = function() {
-	var input = GetInput();
-	if (input.x != 0 || input.y != 0) {
-	    var coords  = GetCoordsNormalized(input, Speed.normal),
-	        isMoved = CheckIfFreeAndMove(coords.x, coords.y);
+MoveByInput = function(_input = GetInput()) {
+	if (_input.x != 0 || _input.y != 0) {
+	    var coords  = InputNormalized(_input, Speed.normal),
+	        isMoved = CheckIfFreeAndMoveOn(coords.x, coords.y);
             
 	    if (not isMoved) {
-	        CollideSmoothly(coords);
+	        CollideSmoothlyAt(coords);
 	    }
 	}
 }

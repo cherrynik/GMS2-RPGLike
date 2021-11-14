@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Tests.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tests",
+  "name": "test_collision",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,1 +1,1 @@
-Movement(Speed);
+MoveByInput();
