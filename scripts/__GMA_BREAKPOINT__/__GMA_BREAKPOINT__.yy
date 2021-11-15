@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "GameService",
-    "path": "folders/Scripts/GameService.yy",
+    "name": "GMAssert",
+    "path": "folders/Scripts/Tests/Vendor/GMAssert.yy",
   },
   "resourceVersion": "1.0",
-  "name": "get_delta_time",
+  "name": "__GMA_BREAKPOINT__",
   "tags": [],
   "resourceType": "GMScript",
 }

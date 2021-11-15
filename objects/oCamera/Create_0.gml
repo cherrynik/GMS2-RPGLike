@@ -1,27 +1,56 @@
-// Декларация переменных
-#macro RES_W 480
-#macro RES_H 270
-#macro CAM_SMOOTH .2
+#region Variables
+Resolution = {
+  Width:  undefined,
+  Height: undefined
+};
 
-target = oPlayer
-camera = noone
+Instance = undefined;
+Target   = undefined;
+Smooth   = undefined;
+#endregion
 
-// Включение вьюпортов
-view_enabled = true
-view_visible[0] = true
+// TODO: Camera effects, tests for camera, improvements, fixes
+#region Methods
+View = function(_view_id = 0) {
+  var display_w          = display_get_width(),
+  	  display_h          = display_get_height();
+  view_enabled           = true;
+  view_visible[_view_id] = true;
 
-// Стартовая позиция
-var _initX = target.x - RES_W / 2
-var _initY = target.y - RES_H / 2
+  view_set_camera(_view_id, Instance);
 
-// Создание камеры
-camera = camera_create_view(_initX, _initY, RES_W, RES_H)
-view_set_camera(0, camera)
+  window_set_size(Resolution.Width, Resolution.Height); 
+  surface_resize(application_surface, display_w, display_h); // Благодаря этому параметру, вид в игре будет лучше
+  display_set_gui_size(Resolution.Width, Resolution.Height); // Размер GUI будет совпадать на любых разрешениях с исходным
+}
 
-// Генерация размеров окна
-var _displayW = display_get_width()
-var _displayH = display_get_height()
+Follow = function() {
+  var x_view   = camera_get_view_x(Instance),
+      y_view   = camera_get_view_y(Instance),
+	  x_target = Target.x - Resolution.Width / 2 + sprite_get_width(Target.sprite_index),
+      y_target = Target.y - Resolution.Height / 2 + sprite_get_height(Target.sprite_index);
+  
+  x_target = clamp(x_target, 0, room_width - Resolution.Width)
+  y_target = clamp(y_target, 0, room_height - Resolution.Height)
+  
+  // Плавное передвижение камеры
+  x_view = lerp(x_view, x_target, Smooth)
+  y_view = lerp(y_view, y_target, Smooth)
+  
+  camera_set_view_pos(Instance, x_view, y_view)	
+}
 
-window_set_size(RES_W, RES_H)
-surface_resize(application_surface, _displayW, _displayH) // Благодаря этому параметру, вид в игре будет лучше
-display_set_gui_size(RES_W, RES_H) // Размер GUI будет совпадать на любых разрешениях с исходным
+var Camera = function(_resolution = { Width: 480, Height: 270 },
+                      _target     = oPlayer,
+				      _smooth     = .05) constructor {
+  Target     = _target;
+  Resolution = _resolution;
+  Smooth     = _smooth;
+
+  var x_start = Target.x - Resolution.Width  / 2,
+      y_start = Target.y - Resolution.Height / 2;
+  Instance = camera_create_view(x_start, y_start, Resolution.Width, Resolution.Height);
+
+  View();
+}();
+#endregion Methods

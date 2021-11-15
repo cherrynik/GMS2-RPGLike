@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "GameService",
-    "path": "folders/Scripts/GameService.yy",
+    "name": "Tests",
+    "path": "folders/Scripts/Tests.yy",
   },
   "resourceVersion": "1.0",
-  "name": "get_delta_time",
+  "name": "test_collision",
   "tags": [],
   "resourceType": "GMScript",
 }
