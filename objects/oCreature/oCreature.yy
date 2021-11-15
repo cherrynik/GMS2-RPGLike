@@ -23,8 +23,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Creatures",
+    "path": "folders/Objects/Creatures.yy",
   },
   "resourceVersion": "1.0",
   "name": "oCreature",

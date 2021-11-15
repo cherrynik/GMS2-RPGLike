@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "GameService",
-    "path": "folders/Objects/GameService.yy",
+    "name": "Services",
+    "path": "folders/Objects/Services.yy",
   },
   "resourceVersion": "1.0",
   "name": "oCollider",

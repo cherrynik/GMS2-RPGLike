@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Objects/World/Player.yy",
+    "path": "folders/Objects/Creatures/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "oPlayer",

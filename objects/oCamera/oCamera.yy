@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "View",
-    "path": "folders/Objects/GameService/View.yy",
+    "path": "folders/Objects/Services/View.yy",
   },
   "resourceVersion": "1.0",
   "name": "oCamera",

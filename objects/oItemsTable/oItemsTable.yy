@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Items",
-    "path": "folders/Objects/GameService/Items.yy",
+    "path": "folders/Objects/Services/Items.yy",
   },
   "resourceVersion": "1.0",
   "name": "oItemsTable",

@@ -8,7 +8,7 @@
   "option_steam_app_id": "0",
   "option_sci_usesci": true,
   "option_author": "Nikolay Cherednik",
-  "option_lastchanged": "15 November 2021 10:39:37",
+  "option_lastchanged": "15 November 2021 10:40:51",
   "option_spine_licence": false,
   "option_template_image": "${base_options_dir}/main/template_image.png",
   "option_template_icon": "${base_options_dir}/main/template_icon.png",
