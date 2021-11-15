@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sWood",
+    "path": "sprites/sWood/sWood.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -17,19 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Tests",
-    "path": "folders/Objects/Tests.yy",
+    "name": "World",
+    "path": "folders/Objects/World.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oTests",
+  "name": "oWood",
   "tags": [],
   "resourceType": "GMObject",
 }

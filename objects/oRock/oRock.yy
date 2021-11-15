@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sPickable",
-    "path": "sprites/sPickable/sPickable.yy",
+    "name": "sRock",
+    "path": "sprites/sRock/sRock.yy",
   },
   "solid": false,
   "visible": true,
@@ -19,19 +19,21 @@
   "physicsFriction": 0.2,
   "physicsStartAwake": true,
   "physicsKinematic": false,
-  "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  "physicsShapePoints": [
+    {"x":0.0,"y":0.0,},
+    {"x":8.0,"y":0.0,},
+    {"x":8.0,"y":8.0,},
+    {"x":0.0,"y":8.0,},
   ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Items",
-    "path": "folders/Objects/Services/Items.yy",
+    "name": "World",
+    "path": "folders/Objects/World.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oPickableItem",
+  "name": "oRock",
   "tags": [],
   "resourceType": "GMObject",
 }

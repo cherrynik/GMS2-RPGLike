@@ -1,9 +1,10 @@
-SpeedStatus = {
-  Normal: 1,
-  Slowed: 1/3,
-};
+Health = undefined;
+Speed  = undefined;
 
-Speed = SpeedStatus.Normal;
+SpeedStatus = {
+  Normal: undefined,
+  Slowed: undefined,
+};
 
 GetCoordsNormalized = function(_coords) {
   var dir   = point_direction(0, 0, _coords.x, _coords.y),
@@ -22,8 +23,8 @@ GetCoordsNormalized = function(_coords) {
 }
 
 CheckIfFreeAndMoveOn = function(_x, _y) {
-  x_next = x + _x * get_delta_time(); // By delta time it's independent on game FPS
-  y_next = y + _y * get_delta_time();
+  var x_next = x + _x * get_delta_time(), // By delta time it's independent on game FPS
+      y_next = y + _y * get_delta_time();
 
   if (place_free(x_next, y_next)) {
 	Speed = SpeedStatus.Normal;
@@ -47,11 +48,18 @@ CollideSmoothlyAt = function(_coords) {
   	  _coords.x = lengthdir_x(Speed, degree_check);
   	  _coords.y = lengthdir_y(Speed, degree_check);
   	  		
-  	  isMoved = CheckIfFreeAndMoveOn(_coords.x, _coords.y);
-  	  if (isMoved) {
+  	  var is_moved = CheckIfFreeAndMoveOn(_coords.x, _coords.y);
+  	  if (is_moved) {
 		return true;
 	  }
   	}
   }
   return false;
 }
+
+Creature = function(_health = 100,
+                    _speed_status = { Normal: 1, Slowed: 1/3 }) constructor {
+  Health      = _health;
+  SpeedStatus = _speed_status;
+  Speed       = SpeedStatus.Normal;
+};

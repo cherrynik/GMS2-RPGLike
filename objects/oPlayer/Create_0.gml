@@ -25,3 +25,5 @@ MoveByInput = function(_input = GetInputAxis()) {
   }
 }
 #endregion
+
+Creature(100, { Normal: 1, Slowed: 1/3 });

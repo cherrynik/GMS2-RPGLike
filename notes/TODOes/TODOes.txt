@@ -20,3 +20,5 @@ Shortest path in smoothing collision
 Refactor others:
   Camera, Inventory (each of it complex mech),
   scripts, rooms, Particles, Hideself, items, Lang switch, Depth
+  
+Notion page of versioning

@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Environment",
-    "path": "folders/Objects/World/Environment.yy",
+    "name": "World",
+    "path": "folders/Objects/World.yy",
   },
   "resourceVersion": "1.0",
   "name": "oLeaf",
