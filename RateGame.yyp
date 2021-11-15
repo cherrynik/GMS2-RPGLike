@@ -19,6 +19,7 @@
     {"id":{"name":"oPickableItem","path":"objects/oPickableItem/oPickableItem.yy",},"order":1,},
     {"id":{"name":"sRock","path":"sprites/sRock/sRock.yy",},"order":0,},
     {"id":{"name":"GMAssert","path":"extensions/GMAssert/GMAssert.yy",},"order":0,},
+    {"id":{"name":"TODOes","path":"notes/TODOes/TODOes.yy",},"order":0,},
     {"id":{"name":"oTests","path":"objects/oTests/oTests.yy",},"order":8,},
     {"id":{"name":"sGrass","path":"sprites/sGrass/sGrass.yy",},"order":1,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
@@ -58,8 +59,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Tests","path":"rooms/Tests/Tests.yy",},},
     {"roomId":{"name":"Main","path":"rooms/Main/Main.yy",},},
+    {"roomId":{"name":"Tests","path":"rooms/Tests/Tests.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

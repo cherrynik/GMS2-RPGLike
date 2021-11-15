@@ -36,4 +36,7 @@ function test_smooth_collision() {
     assert_is(Player.CollideSmoothlyAt({x: 0, y: -1, direction: 90}), false);
 	assert_equal(previous_pos, [Player.x, Player.y]);
   }
+  
+  instance_destroy(Player);
+  instance_destroy(Collider);
 }

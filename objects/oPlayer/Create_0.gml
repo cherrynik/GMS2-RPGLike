@@ -16,7 +16,7 @@ GetInputAxis = function() {
 
 MoveByInput = function(_input = GetInputAxis()) {
   if (_input.x != 0 || _input.y != 0) {
-    var coords  = GetCoordsNormalized(_input, Speed.normal),
+    var coords  = GetCoordsNormalized(_input, SpeedStatus.Normal),
         isMoved = CheckIfFreeAndMoveOn(coords.x, coords.y);
            
     if (not isMoved) {

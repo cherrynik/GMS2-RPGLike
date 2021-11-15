@@ -1,16 +1,17 @@
-Speed = {
-  normal: 1,
-  slowed: 1/3,
+SpeedStatus = {
+  Normal: 1,
+  Slowed: 1/3,
 };
 
+Speed = SpeedStatus.Normal;
+
 GetCoordsNormalized = function(_coords) {
-  // TODO: Replace speed on current value
   var dir   = point_direction(0, 0, _coords.x, _coords.y),
-      y_fix = lengthdir_y(Speed.normal, dir),
+      y_fix = lengthdir_y(Speed, dir),
 	  x_fix = 0;
 	  
   if (_coords.x != .0) {
-	x_fix = lengthdir_x(Speed.normal, dir);
+	x_fix = lengthdir_x(Speed, dir);
   }
       
   return {
@@ -21,9 +22,13 @@ GetCoordsNormalized = function(_coords) {
 }
 
 CheckIfFreeAndMoveOn = function(_x, _y) {
-  if (place_free(x + _x, y + _y)) {
-    x += _x * get_delta_time(); // By delta time it's independent on game FPS
-    y += _y * get_delta_time();
+  x_next = x + _x * get_delta_time(); // By delta time it's independent on game FPS
+  y_next = y + _y * get_delta_time();
+
+  if (place_free(x_next, y_next)) {
+	Speed = SpeedStatus.Normal;
+    x = x_next;
+    y = y_next;
     return true;
   }
   return false;
@@ -37,9 +42,10 @@ CollideSmoothlyAt = function(_coords) {
 	// TODO: Flexible switcher: calc shortest edge and flip -1 or 1
   	for (var angle_direction = -1; angle_direction <= 1; angle_direction += 2) {
   	  var degree_check = _coords.direction + angle * angle_direction;
-
-  	  _coords.x = lengthdir_x(Speed.slowed, degree_check);
-  	  _coords.y = lengthdir_y(Speed.slowed, degree_check);
+      
+	  Speed = SpeedStatus.Slowed;
+  	  _coords.x = lengthdir_x(Speed, degree_check);
+  	  _coords.y = lengthdir_y(Speed, degree_check);
   	  		
   	  isMoved = CheckIfFreeAndMoveOn(_coords.x, _coords.y);
   	  if (isMoved) {
