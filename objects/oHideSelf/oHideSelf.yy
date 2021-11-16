@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "View",
-    "path": "folders/Objects/Services/View.yy",
+    "name": "Services",
+    "path": "folders/Objects/Services.yy",
   },
   "resourceVersion": "1.0",
   "name": "oHideSelf",

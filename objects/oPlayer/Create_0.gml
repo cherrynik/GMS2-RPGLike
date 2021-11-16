@@ -1,6 +1,8 @@
 event_inherited();
 
-#region Mechanic - Movement
+Inventory = undefined;
+
+#region
 GetInputAxis = function() {
   // TODO: Custom inputs
   var left  = keyboard_check(vk_left),
@@ -17,13 +19,19 @@ GetInputAxis = function() {
 MoveByInput = function(_input = GetInputAxis()) {
   if (_input.x != 0 || _input.y != 0) {
     var coords  = GetCoordsNormalized(_input, SpeedStatus.Normal),
-        isMoved = CheckIfFreeAndMoveOn(coords.x, coords.y);
+        is_moved = CheckIfFreeAndMoveOn(coords.x, coords.y);
            
-    if (not isMoved) {
+    if (not is_moved) {
       CollideSmoothlyAt(coords);
     }
   }
 }
+
+Player = function(_props) constructor {
+  Inventory = instance_create_depth(0, 0, 0, oInventory);
+  Inventory.InitSlots(3);
+}
 #endregion
 
-Creature(100, { Normal: 1, Slowed: 1/3 });
+Creature();
+Player();

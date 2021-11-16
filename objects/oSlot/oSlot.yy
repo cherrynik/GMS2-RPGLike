@@ -1,12 +1,9 @@
 {
-  "spriteId": {
-    "name": "sCamera",
-    "path": "sprites/sCamera/sCamera.yy",
-  },
+  "spriteId": null,
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
-  "persistent": true,
+  "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -22,16 +19,15 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Services",
-    "path": "folders/Objects/Services.yy",
+    "name": "Slot",
+    "path": "folders/Objects/Components/Base/Slot.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oCamera",
+  "name": "oSlot",
   "tags": [],
   "resourceType": "GMObject",
 }
