@@ -3,7 +3,7 @@ Speed  = undefined;
 
 SpeedStatus = {
   Normal: undefined,
-  Slowed: undefined,
+  Slow:   undefined,
 };
 
 GetCoordsNormalized = function(_coords) {
@@ -44,7 +44,7 @@ CollideSmoothlyAt = function(_coords) {
   	for (var angle_direction = -1; angle_direction <= 1; angle_direction += 2) {
   	  var degree_check = _coords.direction + angle * angle_direction;
       
-	  Speed = SpeedStatus.Slowed;
+	  Speed = SpeedStatus.Slow;
   	  _coords.x = lengthdir_x(Speed, degree_check);
   	  _coords.y = lengthdir_y(Speed, degree_check);
   	  		
@@ -58,7 +58,8 @@ CollideSmoothlyAt = function(_coords) {
 }
 
 Creature = function(_health = 100,
-                    _speed_status = { Normal: 1, Slowed: 1/3 }) constructor {
+                    _speed_status = { Normal: 1,
+						              Slow:   1/3, }) constructor {
   Health      = _health;
   SpeedStatus = _speed_status;
   Speed       = SpeedStatus.Normal;
