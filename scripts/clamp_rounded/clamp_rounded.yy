@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Movement",
-    "path": "folders/Scripts/Tests/Movement.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "test_smooth_collision",
+  "name": "clamp_rounded",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Tests",
-    "path": "folders/Scripts/Tests.yy",
+    "name": "Movement",
+    "path": "folders/Scripts/Tests/Movement.yy",
   },
   "resourceVersion": "1.0",
   "name": "test_collision",

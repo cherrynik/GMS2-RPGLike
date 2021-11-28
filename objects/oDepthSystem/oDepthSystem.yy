@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Services",
-    "path": "folders/Objects/Services.yy",
+    "name": "DepthSystem",
+    "path": "folders/Objects/Services/DepthSystem.yy",
   },
   "resourceVersion": "1.0",
   "name": "oDepthSystem",
