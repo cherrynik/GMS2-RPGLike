@@ -1,5 +1,5 @@
 Run = function() {
   with (all) {
-    depth = -bbox_bottom;
+    depth = -cos(image_angle) * bbox_bottom;
   }
 }

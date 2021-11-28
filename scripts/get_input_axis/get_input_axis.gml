@@ -1,8 +1,11 @@
+// TODO: Gamepad and gestures support
 function get_input_axis() {
-  var left  = keyboard_check(global.Keymap.Movement.Left),
-  	  right = keyboard_check(global.Keymap.Movement.Right),
-  	  up    = keyboard_check(global.Keymap.Movement.Up),
-  	  down  = keyboard_check(global.Keymap.Movement.Down);
+  var move_key = global.Keymap.Movement,
+
+      left  = is_keymap_active(move_key.Left),
+      right = is_keymap_active(move_key.Right),
+      up    = is_keymap_active(move_key.Up),
+      down  = is_keymap_active(move_key.Down);
   
   return {
     x: right - left,

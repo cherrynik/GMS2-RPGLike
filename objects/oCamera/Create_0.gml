@@ -4,53 +4,81 @@ Resolution = {
   Height: undefined
 };
 
+Display = {
+  Width:  undefined,
+  Height: undefined,
+};
+
+Borders = {
+  x_start: 0,
+  y_start: 0,
+  x_end:   undefined,
+  y_end:   undefined,
+};
+
 Instance = undefined;
-Target   = undefined;
-Smooth   = undefined;
+Target   = {
+  Object: undefined,
+  x:      undefined,
+  y:      undefined,
+}
+
+SmoothBy = undefined;
 #endregion
 
-// TODO: Camera effects, tests for camera, improvements, fixes
 #region Methods
 View = function(_view_id = 0) {
-  var display_w          = display_get_width(),
-  	  display_h          = display_get_height();
   view_enabled           = true;
   view_visible[_view_id] = true;
-
   view_set_camera(_view_id, Instance);
 
-  window_set_size(Resolution.Width, Resolution.Height); 
-  surface_resize(application_surface, display_w, display_h); // Благодаря этому параметру, вид в игре будет лучше
-  display_set_gui_size(Resolution.Width, Resolution.Height); // Размер GUI будет совпадать на любых разрешениях с исходным
+  Render();
+}
+
+Render = function() {
+  // FIXME: Pixel lagging on non-display resolutions
+  display_set_gui_size(Resolution.Width, Resolution.Height);
+
+  Display.Width  = display_get_width();
+  Display.Height = display_get_height();
+  surface_resize(application_surface, Display.Width, Display.Height);
 }
 
 Follow = function() {
-  var x_view   = camera_get_view_x(Instance),
-      y_view   = camera_get_view_y(Instance),
-	  x_target = Target.x - Resolution.Width / 2 + sprite_get_width(Target.sprite_index),
-      y_target = Target.y - Resolution.Height / 2 + sprite_get_height(Target.sprite_index);
-  
-  x_target = clamp(x_target, 0, room_width - Resolution.Width)
-  y_target = clamp(y_target, 0, room_height - Resolution.Height)
-  
-  // Плавное передвижение камеры
-  x_view = lerp(x_view, x_target, Smooth)
-  y_view = lerp(y_view, y_target, Smooth)
-  
-  camera_set_view_pos(Instance, x_view, y_view)	
+  Target.x = clamp(Target.Object.x - Resolution.Width  / 2 + sprite_get_width(Target.Object.sprite_index),
+                   Borders.x_start,
+			       Borders.x_end);
+  Target.y = clamp(Target.Object.y - Resolution.Height / 2 + sprite_get_height(Target.Object.sprite_index),
+                   Borders.x_start,
+			       Borders.y_end);
 }
 
-var Camera = function(_resolution = { Width: 480, Height: 270 },
-                      _target     = oPlayer,
-				      _smooth     = .05) constructor {
-  Target     = _target;
-  Resolution = _resolution;
-  Smooth     = _smooth;
+Smooth = function() {
+  var x_view = lerp(camera_get_view_x(Instance), Target.x, SmoothBy),
+      y_view = lerp(camera_get_view_y(Instance), Target.y, SmoothBy);
+  
+  camera_set_view_pos(Instance, x_view, y_view);
+}
 
-  var x_start = Target.x - Resolution.Width  / 2,
-      y_start = Target.y - Resolution.Height / 2;
-  Instance = camera_create_view(x_start, y_start, Resolution.Width, Resolution.Height);
+FollowSmoothly = function() {
+  Follow();
+  Smooth();
+}
 
+Camera = function(_resolution = global.Resolution,
+                  _target     = oPlayer,
+				  _smooth     = .05) constructor {
+  Target.Object = _target;
+  Resolution    = _resolution;
+  SmoothBy      = _smooth;
+  
+  Borders.x_end = room_width - Resolution.Width;
+  Borders.y_end = room_height - Resolution.Height;
+  
+  Follow();
+
+  Instance = camera_create_view(Target.x, Target.y, Resolution.Width, Resolution.Height);
+  
   View();
 }();
-#endregion Methods
+#endregion

@@ -23,11 +23,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Services",
-    "path": "folders/Objects/Services.yy",
+    "name": "Initializator",
+    "path": "folders/Objects/Services/Initializator.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oLoading",
+  "name": "oInitializator",
   "tags": [],
   "resourceType": "GMObject",
 }

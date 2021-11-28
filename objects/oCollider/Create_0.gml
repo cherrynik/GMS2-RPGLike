@@ -1,3 +1,3 @@
 if (debug_mode) {
-  visible = true;	
+  visible = true;
 }
